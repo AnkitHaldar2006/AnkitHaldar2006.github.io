@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/tab-icon" href="./asset/img/icon/tab-icon.png">
+
 <title>Ankit Haldar — Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./asset/CSS/style.css">
@@ -13,19 +15,41 @@
 
 <!-- ── TOP BAR with compact nav ── -->
 <div class="topbar">
-  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-    <span class="logo-dot"></span>
-    <span style="font-weight:800;font-size:13px;letter-spacing:1px;">AH</span>
+
+  <!-- ═══════════════════════════════════════════════════
+    EDITABLE LOGO (Change 1)
+    ────────────────────────────────────────────────────
+    HOW TO SWAP TO YOUR OWN IMAGE:
+      1. Put your logo file (PNG/SVG/JPG) in ./asset/img/
+      2. Change: data-logo-src="" → data-logo-src="./asset/img/your-logo.png"
+    The initials "AH" circle will auto-hide when an image is found.
+  ═══════════════════════════════════════════════════ -->
+  <div class="logo-wrap" data-logo-src="">
+    <img class="logo-img" src="" alt="Logo" id="logo-img">
+    <div class="logo-fallback" id="logo-fallback" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+      <span class="logo-dot"></span>
+      <span style="font-weight:800;font-size:13px;letter-spacing:1px;">AH</span>
+    </div>
   </div>
 
   <!-- Compact nav pills -->
-  <nav class="topbar-nav">
+  <nav class="topbar-nav" id="topbar-nav">
     <a class="nav-pill" href="#about-sec">About</a>
     <a class="nav-pill" href="#projects">Projects</a>
     <a class="nav-pill" href="#certs">Certifications</a>
     <a class="nav-pill" href="#skills-sec">Skills</a>
     <a class="nav-pill" href="#contact-sec">Contact</a>
   </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+    HAMBURGER MENU (Change 2) — visible on mobile only
+  ═══════════════════════════════════════════════════ -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
 </div>
 
 <!-- ══════════════════════════════
@@ -35,10 +59,19 @@
   <div class="hero-deco d1"><span class="deco-icon">🖥️</span></div>
   <div class="hero-deco d2"><span class="deco-icon">💻</span></div>
 
-  <div class="hero-photo-wrap">
+  <!-- ═══════════════════════════════════════════════════
+    EDITABLE PHOTO — Hero circle (Change 7)
+    ────────────────────────────────────────────────────
+    HOW TO ADD YOUR PHOTO:
+      1. Put your photo in ./asset/img/  (JPG/PNG/WEBP)
+      2. Change: data-photo-src="" → data-photo-src="./asset/img/your-photo.jpg"
+    Photo auto-resizes & covers the circle. Emoji disappears automatically.
+  ═══════════════════════════════════════════════════ -->
+  <div class="hero-photo-wrap" data-photo-src="./asset/img/photo/my_photo.jpg">
     <div class="hero-photo-bg"></div>
     <div class="hero-photo-circle">
-      <span class="avatar-placeholder">🧑‍💻</span>
+      <img class="profile-photo" src="./asset/img/photo/my_photo.jpg" alt="Ankit Haldar" id="hero-photo">
+      <span class="avatar-placeholder" id="hero-placeholder">🧑‍💻</span>
     </div>
   </div>
 
@@ -65,8 +98,6 @@
 
 <!-- ══════════════════════════════
      ABOUT SECTION
-     #about-sec → top of about header
-     #skills-sec → skills subsection inside about
 ══════════════════════════════ -->
 <div class="section-header scroll-target" id="about-sec">
   <h2>About</h2>
@@ -77,8 +108,18 @@
   <div class="about-photo-col">
     <div class="about-photo-box">
       <div class="about-photo-corner"></div>
-      <span class="big-avatar" style="position:relative;z-index:1;">🧑‍💻</span>
+      <!-- ═══════════════════════════════════════════════════
+        EDITABLE PHOTO — About section (Change 7 continued)
+        ────────────────────────────────────────────────────
+        HOW TO ADD YOUR PHOTO:
+          Same as the hero photo — set data-photo-src on the
+          parent .hero-photo-wrap, OR just set src directly:
+          <img class="about-profile-photo" src="./asset/img/your-photo.jpg" ...>
+      ═══════════════════════════════════════════════════ -->
+      <img class="about-profile-photo" src="./asset/img/photo/my_photo.jpg" alt="Ankit Haldar" id="about-photo">
+      <span class="big-avatar" id="about-placeholder">🧑‍💻</span>
     </div>
+
     <div class="contact-card">
       <h3>Let's Work Together :</h3>
       <div class="contact-item">
@@ -96,6 +137,9 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════
+    ABOUT CONTENT + SKILLS (Change 3 — shifted right with better spacing)
+  ═══════════════════════════════════════════════════ -->
   <div class="about-content-col">
     <div class="hello-quote">" "HELLO</div>
     <div class="hello-title">HELLO<span class="dot">.</span></div>
@@ -104,58 +148,67 @@
       My journey spans programming fundamentals, web development, and a growing passion for machine learning and AI. I enjoy turning ideas into projects, learning new tools, and building things from scratch.
     </p>
 
-    <div class="sub-section">
-      <div class="sub-section-title">Education</div>
-      <div class="edu-entry">
-        <div style="display:flex;align-items:baseline;gap:8px;">
-          <span class="edu-year">2025–</span>
-          <div>
-            <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-            <div class="edu-school">MAKAUT University &nbsp;·&nbsp; Graduating 2029</div>
+    <!-- ═══════════════════════════════════════════════════
+      2-COLUMN SUBSECTION LAYOUT
+      Left col: Education | Right col: Skills + Tools
+      This fills the full width of the content column.
+    ═══════════════════════════════════════════════════ -->
+    <div class="about-subsections">
+
+      <!-- LEFT: Education -->
+      <div class="sub-section">
+        <div class="sub-section-title">Education</div>
+        <div class="edu-entry">
+          <div class="edu-year">2025–</div>
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">MAKAUT University &nbsp;·&nbsp; Graduating 2029</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Skills + Tools stacked -->
+      <div class="about-subsections-right">
+
+        <!-- SKILLS (Change 6: icon-ready pills) -->
+        <div class="sub-section scroll-target" id="skills-sec">
+          <div class="sub-section-title">Skills</div>
+          <div class="skills-grid">
+
+            <!--
+              HOW TO ADD SKILL ICONS:
+              Set  data-icon="./asset/img/icons/python.svg"  (or .png)
+              on the pill span. Leave it empty to show no icon.
+              Works with SVG, PNG, JPG — any size image, always 16×16px.
+            -->
+            <span class="skill-pill yellow" data-icon="./asset/img/icon/python.svg">Python</span>
+            <span class="skill-pill"        data-icon="./asset/img/icon/c.svg">C</span>
+            <span class="skill-pill"        data-icon="./asset/img/icon/c++.svg">C++</span>
+            <span class="skill-pill yellow" data-icon="./asset/img/icon/javascript.svg">JavaScript</span>
+            <span class="skill-pill"        data-icon="./asset/img/icon/html5.svg">HTML</span>
+            <span class="skill-pill"        data-icon="./asset/img/icon/java.svg">Java</span>
+
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Skills anchor placed HERE — at the top of the skills block -->
-    <div class="sub-section scroll-target" id="skills-sec">
-      <div class="sub-section-title">Skills</div>
-      <div class="skills-grid">
-        <span class="skill-pill yellow">Python</span>
-        <span class="skill-pill">C</span>
-        <span class="skill-pill">C++</span>
-        <span class="skill-pill yellow">JavaScript</span>
-        <span class="skill-pill">HTML</span>
-        <span class="skill-pill">Java</span>
-        <span class="skill-pill">VS Code</span>
-      </div>
-    </div>
-
-    <div class="sub-section">
-      <div class="sub-section-title">Tools</div>
-      <div class="tools-row">
-        <span class="tool-badge">🐙 Git</span>
-        <span class="tool-badge">😸 GitHub</span>
-        <span class="tool-badge" style="opacity:0.6;">📦 Git Bash <em style="font-size:10px;">(learning)</em></span>
-      </div>
-    </div>
-
-    <!-- <div class="sub-section">
-      <div class="sub-section-title">Experience Highlights</div>
-      <div class="work-cols">
-        <div class="work-entry">
-          <div class="work-title">Personal Projects</div>
-          <div class="work-company">Self-initiated</div>
-          <div class="work-date">2025 – Present</div>
+        <!-- TOOLS -->
+        <div class="sub-section">
+          <div class="sub-section-title">Tools</div>
+          <div class="tools-row">
+            <!--
+              HOW TO ADD TOOL ICONS:
+              Set  data-icon="./asset/img/icons/git.svg"  on the span.
+              Leave empty for no icon. Works with SVG, PNG, JPG.
+            -->
+            <!-- <span class="tool-badge" data-icon="">Git</span> -->
+            <span class="tool-badge" data-icon="./asset/img/icon/vscode.svg">VS Code</span>
+            <span class="tool-badge" data-icon="./asset/img/icon/github.svg">GitHub</span>
+            <span class="tool-badge" data-icon="./asset/img/icon/git.svg" style="opacity:0.6;">Git Bash <em style="font-size:10px;">(learning)</em></span>
+          </div>
         </div>
-        <div class="work-entry">
-          <div class="work-title">IT & Data Science (Freelance)</div>
-          <div class="work-company">Independent</div>
-          <div class="work-date">2025 – Present</div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+
+      </div><!-- /about-subsections-right -->
+    </div><!-- /about-subsections -->
+
+  </div>
 
   <div class="bg-num" style="bottom:-30px;">02</div>
 </section>
@@ -169,6 +222,7 @@
   <div class="circle-arrow">›</div>
 </div>
 
+<!-- Change 4: project-cards get glow on hover (via CSS .project-card:hover) -->
 <section class="projects-section rel">
   <div class="projects-grid">
 
@@ -231,6 +285,7 @@
   <div class="circle-arrow">›</div>
 </div>
 
+<!-- Change 4 continued: cert-cards also get glow on hover (via CSS) -->
 <section class="certs-section rel">
   <div class="certs-list">
     <div class="cert-card">
