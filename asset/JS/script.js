@@ -180,33 +180,96 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 /* ─────────────────────────────────────────────────
    ACTIVE NAV PILL on scroll
 ───────────────────────────────────────────────── */
-const sections = ['about-sec', 'projects', 'certs', 'skills-sec', 'contact-sec'];
-const pills = document.querySelectorAll('.nav-pill');
+(function () {
+  const ease = 'power3.out';
+  const pills = document.querySelectorAll('.pill');
+  const tlRefs = [];
+  const activeTweens = [];
 
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        pills.forEach((p) => {
-          p.style.background = '';
-          p.style.borderColor = '';
-        });
-        const active = document.querySelector(`.nav-pill[href="#${entry.target.id}"]`);
-        if (active) {
-          active.style.background = 'var(--yellow)';
-          active.style.borderColor = 'var(--yellow)';
-        }
+  function layout() {
+    pills.forEach((pill, i) => {
+      const circle = pill.querySelector('.hover-circle');
+      const label  = pill.querySelector('.pill-label');
+      const white  = pill.querySelector('.pill-label-hover');
+      if (!circle) return;
+
+      const rect = pill.getBoundingClientRect();
+      const w = rect.width, h = rect.height;
+      const R = ((w * w) / 4 + h * h) / (2 * h);
+      const D = Math.ceil(2 * R) + 2;
+      const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
+      const originY = D - delta;
+
+      circle.style.width  = D + 'px';
+      circle.style.height = D + 'px';
+      circle.style.bottom = -delta + 'px';
+
+      gsap.set(circle, { xPercent: -50, scale: 0, transformOrigin: `50% ${originY}px` });
+      if (label) gsap.set(label, { y: 0 });
+      if (white) gsap.set(white, { y: h + 12, opacity: 0 });
+
+      tlRefs[i]?.kill();
+      const tl = gsap.timeline({ paused: true });
+      tl.to(circle, { scale: 1.2, xPercent: -50, duration: 2, ease, overwrite: 'auto' }, 0);
+      if (label) tl.to(label, { y: -(h + 8), duration: 2, ease, overwrite: 'auto' }, 0);
+      if (white) {
+        gsap.set(white, { y: Math.ceil(h + 100), opacity: 0 });
+        tl.to(white, { y: 0, opacity: 1, duration: 2, ease, overwrite: 'auto' }, 0);
+      }
+      tlRefs[i] = tl;
+    });
+  }
+
+  function handleEnter(i) {
+    const tl = tlRefs[i]; if (!tl) return;
+    activeTweens[i]?.kill();
+    activeTweens[i] = tl.tweenTo(tl.duration(), { duration: 0.3, ease, overwrite: 'auto' });
+  }
+
+  function handleLeave(i) {
+    const tl = tlRefs[i]; if (!tl) return;
+    activeTweens[i]?.kill();
+    activeTweens[i] = tl.tweenTo(0, { duration: 0.2, ease, overwrite: 'auto' });
+  }
+
+  pills.forEach((pill, i) => {
+    pill.addEventListener('mouseenter', () => handleEnter(i));
+    pill.addEventListener('mouseleave', () => handleLeave(i));
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
+      pill.classList.add('is-active');
+    });
+  });
+
+  // Logo spin
+  const logoEl = document.getElementById('logoEl');
+  if (logoEl) {
+    logoEl.addEventListener('mouseenter', () => {
+      gsap.set(logoEl, { rotate: 0 });
+      gsap.to(logoEl, { rotate: 360, duration: 0.4, ease, overwrite: 'auto' });
+    });
+  }
+
+  // Auto highlight active link on scroll
+  const sectionIds = ['about-sec', 'projects', 'certs', 'skills-sec', 'contact-sec'];
+  window.addEventListener('scroll', () => {
+    let current = sectionIds[0];
+    sectionIds.forEach(id => {
+      const sec = document.getElementById(id);
+      if (sec && window.scrollY >= sec.offsetTop - 120) current = id;
+    });
+    pills.forEach(pill => {
+      const href = pill.getAttribute('href')?.replace('#', '');
+      if (href === current) {
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
+        pill.classList.add('is-active');
       }
     });
-  },
-  { threshold: 0.3 }
-);
+  });
 
-sections.forEach((id) => {
-  const el = document.getElementById(id);
-  if (el) navObserver.observe(el);
-});
-
+  window.addEventListener('resize', layout);
+  setTimeout(layout, 100);
+})();
 
 /* ─────────────────────────────────────────────────
    FADE-IN ON SCROLL

@@ -8,6 +8,7 @@
 <title>Ankit Haldar — Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./asset/CSS/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 
@@ -16,14 +17,7 @@
 <!-- ── TOP BAR with compact nav ── -->
 <div class="topbar">
 
-  <!-- ═══════════════════════════════════════════════════
-    EDITABLE LOGO (Change 1)
-    ────────────────────────────────────────────────────
-    HOW TO SWAP TO YOUR OWN IMAGE:
-      1. Put your logo file (PNG/SVG/JPG) in ./asset/img/
-      2. Change: data-logo-src="" → data-logo-src="./asset/img/your-logo.png"
-    The initials "AH" circle will auto-hide when an image is found.
-  ═══════════════════════════════════════════════════ -->
+  <!-- Logo — kept exactly same as before -->
   <div class="logo-wrap" data-logo-src="">
     <img class="logo-img" src="" alt="Logo" id="logo-img">
     <div class="logo-fallback" id="logo-fallback" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
@@ -32,18 +26,64 @@
     </div>
   </div>
 
-  <!-- Compact nav pills -->
-  <nav class="topbar-nav" id="topbar-nav">
-    <a class="nav-pill" href="#about-sec">About</a>
-    <a class="nav-pill" href="#projects">Projects</a>
-    <a class="nav-pill" href="#certs">Certifications</a>
-    <a class="nav-pill" href="#skills-sec">Skills</a>
-    <a class="nav-pill" href="#contact-sec">Contact</a>
-  </nav>
+  <!-- New Pill Nav -->
+  <div class="pill-nav-container">
+    <nav class="pill-nav" id="pillNav">
+      <a class="pill-logo" id="logoEl" href="#">AH</a>
+      <div class="pill-nav-items">
+        <ul class="pill-list" id="pillList">
+          <li><a href="#about-sec" class="pill is-active" data-i="0">
+            <span class="hover-circle"></span>
+            <span class="label-stack">
+              <span class="pill-label">About</span>
+              <span class="pill-label-hover">About</span>
+            </span>
+          </a></li>
+          <li><a href="#projects" class="pill" data-i="1">
+            <span class="hover-circle"></span>
+            <span class="label-stack">
+              <span class="pill-label">Projects</span>
+              <span class="pill-label-hover">Projects</span>
+            </span>
+          </a></li>
+          <li><a href="#certs" class="pill" data-i="2">
+            <span class="hover-circle"></span>
+            <span class="label-stack">
+              <span class="pill-label">Certifications</span>
+              <span class="pill-label-hover">Certifications</span>
+            </span>
+          </a></li>
+          <li><a href="#skills-sec" class="pill" data-i="3">
+            <span class="hover-circle"></span>
+            <span class="label-stack">
+              <span class="pill-label">Skills</span>
+              <span class="pill-label-hover">Skills</span>
+            </span>
+          </a></li>
+          <li><a href="#contact-sec" class="pill" data-i="4">
+            <span class="hover-circle"></span>
+            <span class="label-stack">
+              <span class="pill-label">Contact</span>
+              <span class="pill-label-hover">Contact</span>
+            </span>
+          </a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- ═══════════════════════════════════════════════════
-    HAMBURGER MENU (Change 2) — visible on mobile only
-  ═══════════════════════════════════════════════════ -->
+    <!-- Mobile popover menu -->
+    <div class="mobile-menu-popover" id="mobileMenu">
+      <ul class="mobile-menu-list">
+        <li><a href="#about-sec">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#skills-sec">Skills</a></li>
+        <li><a href="#contact-sec">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hamburger — kept exactly same as before -->
   <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span>
     <span></span>
@@ -51,7 +91,6 @@
   </button>
 
 </div>
-
 <!-- ══════════════════════════════
      HERO
 ══════════════════════════════ -->
