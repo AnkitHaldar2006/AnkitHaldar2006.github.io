@@ -15,27 +15,26 @@
    on the <div class="logo-wrap"> in index.html.
 ───────────────────────────────────────────────── */
 function initLogo() {
-  const wrap = document.querySelector('.logo-wrap');
-  const logoImg = document.getElementById('logo-img');
-  const logoFallback = document.getElementById('logo-fallback');
+  const wrap = document.querySelector(".logo-wrap");
+  const logoImg = document.getElementById("logo-img");
+  const logoFallback = document.getElementById("logo-fallback");
   if (!wrap || !logoImg || !logoFallback) return;
 
-  const src = wrap.getAttribute('data-logo-src') || '';
-  if (src.trim() !== '') {
+  const src = wrap.getAttribute("data-logo-src") || "";
+  if (src.trim() !== "") {
     logoImg.src = src;
     logoImg.onload = () => {
-      logoImg.style.display = 'block';
-      logoFallback.style.display = 'none';
+      logoImg.style.display = "block";
+      logoFallback.style.display = "none";
     };
     logoImg.onerror = () => {
       // src was set but image failed — keep fallback
-      logoImg.style.display = 'none';
-      logoFallback.style.display = 'flex';
+      logoImg.style.display = "none";
+      logoFallback.style.display = "flex";
     };
   }
 }
 initLogo();
-
 
 /* ─────────────────────────────────────────────────
    CHANGE 7: PHOTO AUTO-SWAP
@@ -46,42 +45,41 @@ initLogo();
 ───────────────────────────────────────────────── */
 function initPhotos() {
   // Hero photo
-  const heroWrap = document.querySelector('.hero-photo-wrap');
-  const heroPhoto = document.getElementById('hero-photo');
-  const heroPlaceholder = document.getElementById('hero-placeholder');
+  const heroWrap = document.querySelector(".hero-photo-wrap");
+  const heroPhoto = document.getElementById("hero-photo");
+  const heroPlaceholder = document.getElementById("hero-placeholder");
   if (heroWrap && heroPhoto && heroPlaceholder) {
-    const src = heroWrap.getAttribute('data-photo-src') || '';
-    if (src.trim() !== '') {
+    const src = heroWrap.getAttribute("data-photo-src") || "";
+    if (src.trim() !== "") {
       heroPhoto.src = src;
       heroPhoto.onload = () => {
-        heroPhoto.style.display = 'block';
-        heroPlaceholder.style.display = 'none';
+        heroPhoto.style.display = "block";
+        heroPlaceholder.style.display = "none";
       };
       heroPhoto.onerror = () => {
-        heroPhoto.style.display = 'none';
-        heroPlaceholder.style.display = 'block';
+        heroPhoto.style.display = "none";
+        heroPlaceholder.style.display = "block";
       };
     }
   }
 
   // About photo
-  const aboutPhoto = document.getElementById('about-photo');
-  const aboutPlaceholder = document.getElementById('about-placeholder');
+  const aboutPhoto = document.getElementById("about-photo");
+  const aboutPlaceholder = document.getElementById("about-placeholder");
   if (aboutPhoto && aboutPlaceholder) {
     if (aboutPhoto.src && aboutPhoto.src !== window.location.href) {
       aboutPhoto.onload = () => {
-        aboutPhoto.style.display = 'block';
-        aboutPlaceholder.style.display = 'none';
+        aboutPhoto.style.display = "block";
+        aboutPlaceholder.style.display = "none";
       };
       aboutPhoto.onerror = () => {
-        aboutPhoto.style.display = 'none';
-        aboutPlaceholder.style.display = 'block';
+        aboutPhoto.style.display = "none";
+        aboutPlaceholder.style.display = "block";
       };
     }
   }
 }
 initPhotos();
-
 
 /* ─────────────────────────────────────────────────
    CHANGE 6: SKILL ICONS — background-image approach
@@ -96,65 +94,69 @@ initPhotos();
      Works with .svg, .png, .jpg — any image format.
 ───────────────────────────────────────────────── */
 function initSkillIcons() {
-  document.querySelectorAll('.skill-pill[data-icon]').forEach((pill) => {
-    const src = (pill.getAttribute('data-icon') || '').trim();
+  document.querySelectorAll(".skill-pill[data-icon]").forEach((pill) => {
+    const src = (pill.getAttribute("data-icon") || "").trim();
     if (!src) return;
-    const dot = document.createElement('span');
-    dot.className = 'skill-icon-dot';
+    const dot = document.createElement("span");
+    dot.className = "skill-icon-dot";
     dot.style.backgroundImage = `url('${src}')`;
-    dot.setAttribute('aria-hidden', 'true');
+    dot.setAttribute("aria-hidden", "true");
     pill.insertBefore(dot, pill.firstChild);
   });
 }
 
 /* Same system for tool badges */
 function initToolIcons() {
-  document.querySelectorAll('.tool-badge[data-icon]').forEach((badge) => {
-    const src = (badge.getAttribute('data-icon') || '').trim();
+  document.querySelectorAll(".tool-badge[data-icon]").forEach((badge) => {
+    const src = (badge.getAttribute("data-icon") || "").trim();
     if (!src) return;
-    const dot = document.createElement('span');
-    dot.className = 'tool-icon-dot';
+    const dot = document.createElement("span");
+    dot.className = "tool-icon-dot";
     dot.style.backgroundImage = `url('${src}')`;
-    dot.setAttribute('aria-hidden', 'true');
+    dot.setAttribute("aria-hidden", "true");
     badge.insertBefore(dot, badge.firstChild);
   });
 }
 initSkillIcons();
 initToolIcons();
 
-
 /* ─────────────────────────────────────────────────
    CHANGE 2: HAMBURGER MENU TOGGLE
 ───────────────────────────────────────────────── */
-const hamburger = document.getElementById('hamburger');
-const topbarNav = document.getElementById('topbar-nav');
+/* ─────────────────────────────────────────────────
+   HAMBURGER MENU TOGGLE
+───────────────────────────────────────────────── */
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
 
 function toggleMenu(forceClose = false) {
-  const isOpen = topbarNav.classList.contains('open') || forceClose;
+  if (!mobileMenu) return;
+  const isOpen = mobileMenu.classList.contains("open") || forceClose;
   if (isOpen) {
-    topbarNav.classList.remove('open');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove("open");
+    hamburger.classList.remove("active");
+    hamburger.setAttribute("aria-expanded", "false");
   } else {
-    topbarNav.classList.add('open');
-    hamburger.classList.add('active');
-    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add("open");
+    hamburger.classList.add("active");
+    hamburger.setAttribute("aria-expanded", "true");
   }
 }
 
-if (hamburger && topbarNav) {
-  hamburger.addEventListener('click', () => toggleMenu());
-
-  // Close menu when a nav pill is tapped
-  topbarNav.querySelectorAll('.nav-pill').forEach((pill) => {
-    pill.addEventListener('click', () => toggleMenu(true));
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
   });
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => toggleMenu(true));
+  });
+
+  document.addEventListener("click", (e) => {
     if (
-      topbarNav.classList.contains('open') &&
-      !topbarNav.contains(e.target) &&
+      mobileMenu.classList.contains("open") &&
+      !mobileMenu.contains(e.target) &&
       !hamburger.contains(e.target)
     ) {
       toggleMenu(true);
@@ -162,112 +164,141 @@ if (hamburger && topbarNav) {
   });
 }
 
-
 /* ─────────────────────────────────────────────────
    SMOOTH SCROLL for anchor links
 ───────────────────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
-  a.addEventListener('click', (e) => {
-    const target = document.querySelector(a.getAttribute('href'));
+  a.addEventListener("click", (e) => {
+    const target = document.querySelector(a.getAttribute("href"));
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: "smooth" });
     }
   });
 });
-
 
 /* ─────────────────────────────────────────────────
    ACTIVE NAV PILL on scroll
 ───────────────────────────────────────────────── */
 (function () {
-  const ease = 'power3.out';
-  const pills = document.querySelectorAll('.pill');
+  const ease = "power3.out";
+  const pills = document.querySelectorAll(".pill");
   const tlRefs = [];
   const activeTweens = [];
 
   function layout() {
     pills.forEach((pill, i) => {
-      const circle = pill.querySelector('.hover-circle');
-      const label  = pill.querySelector('.pill-label');
-      const white  = pill.querySelector('.pill-label-hover');
+      const circle = pill.querySelector(".hover-circle");
+      const label = pill.querySelector(".pill-label");
+      const white = pill.querySelector(".pill-label-hover");
       if (!circle) return;
 
       const rect = pill.getBoundingClientRect();
-      const w = rect.width, h = rect.height;
+      const w = rect.width,
+        h = rect.height;
       const R = ((w * w) / 4 + h * h) / (2 * h);
       const D = Math.ceil(2 * R) + 2;
-      const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
+      const delta =
+        Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
       const originY = D - delta;
 
-      circle.style.width  = D + 'px';
-      circle.style.height = D + 'px';
-      circle.style.bottom = -delta + 'px';
+      circle.style.width = D + "px";
+      circle.style.height = D + "px";
+      circle.style.bottom = -delta + "px";
 
-      gsap.set(circle, { xPercent: -50, scale: 0, transformOrigin: `50% ${originY}px` });
+      gsap.set(circle, {
+        xPercent: -50,
+        scale: 0,
+        transformOrigin: `50% ${originY}px`,
+      });
       if (label) gsap.set(label, { y: 0 });
       if (white) gsap.set(white, { y: h + 12, opacity: 0 });
 
       tlRefs[i]?.kill();
       const tl = gsap.timeline({ paused: true });
-      tl.to(circle, { scale: 1.2, xPercent: -50, duration: 2, ease, overwrite: 'auto' }, 0);
-      if (label) tl.to(label, { y: -(h + 8), duration: 2, ease, overwrite: 'auto' }, 0);
+      tl.to(
+        circle,
+        { scale: 1.2, xPercent: -50, duration: 2, ease, overwrite: "auto" },
+        0,
+      );
+      if (label)
+        tl.to(label, { y: -(h + 8), duration: 2, ease, overwrite: "auto" }, 0);
       if (white) {
         gsap.set(white, { y: Math.ceil(h + 100), opacity: 0 });
-        tl.to(white, { y: 0, opacity: 1, duration: 2, ease, overwrite: 'auto' }, 0);
+        tl.to(
+          white,
+          { y: 0, opacity: 1, duration: 2, ease, overwrite: "auto" },
+          0,
+        );
       }
       tlRefs[i] = tl;
     });
   }
 
   function handleEnter(i) {
-    const tl = tlRefs[i]; if (!tl) return;
+    const tl = tlRefs[i];
+    if (!tl) return;
     activeTweens[i]?.kill();
-    activeTweens[i] = tl.tweenTo(tl.duration(), { duration: 0.3, ease, overwrite: 'auto' });
+    activeTweens[i] = tl.tweenTo(tl.duration(), {
+      duration: 0.3,
+      ease,
+      overwrite: "auto",
+    });
   }
 
   function handleLeave(i) {
-    const tl = tlRefs[i]; if (!tl) return;
+    const tl = tlRefs[i];
+    if (!tl) return;
     activeTweens[i]?.kill();
-    activeTweens[i] = tl.tweenTo(0, { duration: 0.2, ease, overwrite: 'auto' });
+    activeTweens[i] = tl.tweenTo(0, { duration: 0.2, ease, overwrite: "auto" });
   }
 
   pills.forEach((pill, i) => {
-    pill.addEventListener('mouseenter', () => handleEnter(i));
-    pill.addEventListener('mouseleave', () => handleLeave(i));
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
-      pill.classList.add('is-active');
+    pill.addEventListener("mouseenter", () => handleEnter(i));
+    pill.addEventListener("mouseleave", () => handleLeave(i));
+    pill.addEventListener("click", () => {
+      document
+        .querySelectorAll(".pill")
+        .forEach((p) => p.classList.remove("is-active"));
+      pill.classList.add("is-active");
     });
   });
 
   // Logo spin
-  const logoEl = document.getElementById('logoEl');
+  const logoEl = document.getElementById("logoEl");
   if (logoEl) {
-    logoEl.addEventListener('mouseenter', () => {
+    logoEl.addEventListener("mouseenter", () => {
       gsap.set(logoEl, { rotate: 0 });
-      gsap.to(logoEl, { rotate: 360, duration: 0.4, ease, overwrite: 'auto' });
+      gsap.to(logoEl, { rotate: 360, duration: 0.4, ease, overwrite: "auto" });
     });
   }
 
   // Auto highlight active link on scroll
-  const sectionIds = ['about-sec', 'projects', 'certs', 'skills-sec', 'contact-sec'];
-  window.addEventListener('scroll', () => {
+  const sectionIds = [
+    "about-sec",
+    "projects",
+    "certs",
+    "skills-sec",
+    "contact-sec",
+  ];
+  window.addEventListener("scroll", () => {
     let current = sectionIds[0];
-    sectionIds.forEach(id => {
+    sectionIds.forEach((id) => {
       const sec = document.getElementById(id);
       if (sec && window.scrollY >= sec.offsetTop - 120) current = id;
     });
-    pills.forEach(pill => {
-      const href = pill.getAttribute('href')?.replace('#', '');
+    pills.forEach((pill) => {
+      const href = pill.getAttribute("href")?.replace("#", "");
       if (href === current) {
-        document.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
-        pill.classList.add('is-active');
+        document
+          .querySelectorAll(".pill")
+          .forEach((p) => p.classList.remove("is-active"));
+        pill.classList.add("is-active");
       }
     });
   });
 
-  window.addEventListener('resize', layout);
+  window.addEventListener("resize", layout);
   setTimeout(layout, 100);
 })();
 
@@ -278,17 +309,20 @@ const fadeObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
       }
     });
   },
-  { threshold: 0.1 }
+  { threshold: 0.1 },
 );
 
-document.querySelectorAll('.project-card, .cert-card, .contact-card').forEach((el) => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease';
-  fadeObserver.observe(el);
-});
+document
+  .querySelectorAll(".project-card, .cert-card, .contact-card")
+  .forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition =
+      "opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease";
+    fadeObserver.observe(el);
+  });
