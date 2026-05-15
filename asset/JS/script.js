@@ -125,44 +125,60 @@ initToolIcons();
 ───────────────────────────────────────────────── */
 /* ─────────────────────────────────────────────────
    HAMBURGER MENU TOGGLE
+/* ─────────────────────────────────────────────────
+   ADVANCED MOBILE MENU
 ───────────────────────────────────────────────── */
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
+const mobOverlay = document.getElementById("mobOverlay");
+const mobCloseBtn = document.getElementById("mobClose");
 
-function toggleMenu(forceClose = false) {
-  if (!mobileMenu) return;
-  const isOpen = mobileMenu.classList.contains("open") || forceClose;
-  if (isOpen) {
-    mobileMenu.classList.remove("open");
-    hamburger.classList.remove("active");
-    hamburger.setAttribute("aria-expanded", "false");
-  } else {
-    mobileMenu.classList.add("open");
-    hamburger.classList.add("active");
-    hamburger.setAttribute("aria-expanded", "true");
-  }
+function openMobMenu() {
+  if (!mobileMenu || !mobOverlay || !hamburger) return;
+  mobileMenu.classList.add("active");
+  mobOverlay.classList.add("active");
+  hamburger.classList.add("active");
+  hamburger.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
 }
 
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener("click", (e) => {
+function closeMobMenu() {
+  if (!mobileMenu || !mobOverlay || !hamburger) return;
+  mobileMenu.classList.remove("active");
+  mobOverlay.classList.remove("active");
+  hamburger.classList.remove("active");
+  hamburger.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+}
+
+if (hamburger) {
+  hamburger.addEventListener("click", function (e) {
     e.stopPropagation();
-    toggleMenu();
-  });
-
-  mobileMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => toggleMenu(true));
-  });
-
-  document.addEventListener("click", (e) => {
-    if (
-      mobileMenu.classList.contains("open") &&
-      !mobileMenu.contains(e.target) &&
-      !hamburger.contains(e.target)
-    ) {
-      toggleMenu(true);
+    if (mobileMenu && mobileMenu.classList.contains("active")) {
+      closeMobMenu();
+    } else {
+      openMobMenu();
     }
   });
 }
+
+if (mobCloseBtn) {
+  mobCloseBtn.addEventListener("click", closeMobMenu);
+}
+
+if (mobOverlay) {
+  mobOverlay.addEventListener("click", closeMobMenu);
+}
+
+if (mobileMenu) {
+  mobileMenu.querySelectorAll(".mob-link").forEach(function (link) {
+    link.addEventListener("click", closeMobMenu);
+  });
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeMobMenu();
+});
 
 /* ─────────────────────────────────────────────────
    SMOOTH SCROLL for anchor links

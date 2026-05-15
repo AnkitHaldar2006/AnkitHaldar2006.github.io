@@ -72,7 +72,9 @@
   </div>
 
   <!-- Right side: toggle + hamburger -->
-  <div class="toggle-switch" id="themeToggle">
+ <!-- Right side: toggle + hamburger -->
+  <div class="topbar-right">
+    <div class="toggle-switch" id="themeToggle">
       <div class="toggle-knob" id="toggleKnob"></div>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -83,15 +85,48 @@
   </div>
 </div>
 
-<!-- Mobile Menu — OUTSIDE topbar, pushes content down -->
-<div class="mobile-menu-popover" id="mobileMenu">
-  <ul class="mobile-menu-list">
-    <li><a href="#about-sec">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certs">Certifications</a></li>
-    <li><a href="#skills-sec">Skills</a></li>
-    <li><a href="#contact-sec">Contact</a></li>
-  </ul>
+<!-- ADVANCED MOBILE MENU -->
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-menu" id="mobileMenu">
+  <div class="mob-header">
+    <div class="mob-logo">
+      <span class="mob-logo-dot"></span>
+      <span class="mob-logo-text">AH</span>
+    </div>
+    <button class="mob-close-btn" id="mobClose">&#x2715;</button>
+  </div>
+  <div class="mob-label">NAVIGATE</div>
+  <nav class="mob-nav">
+    <a href="#about-sec" class="mob-link">
+      <span class="mob-num">01</span>
+      <span class="mob-text">About</span>
+      <span class="mob-arrow">&#8594;</span>
+    </a>
+    <a href="#projects" class="mob-link">
+      <span class="mob-num">02</span>
+      <span class="mob-text">Projects</span>
+      <span class="mob-arrow">&#8594;</span>
+    </a>
+    <a href="#certs" class="mob-link">
+      <span class="mob-num">03</span>
+      <span class="mob-text">Certifications</span>
+      <span class="mob-arrow">&#8594;</span>
+    </a>
+    <a href="#skills-sec" class="mob-link">
+      <span class="mob-num">04</span>
+      <span class="mob-text">Skills</span>
+      <span class="mob-arrow">&#8594;</span>
+    </a>
+    <a href="#contact-sec" class="mob-link">
+      <span class="mob-num">05</span>
+      <span class="mob-text">Contact</span>
+      <span class="mob-arrow">&#8594;</span>
+    </a>
+  </nav>
+  <div class="mob-footer">
+    <span class="mob-footer-role">Data Science · BCA 2025–2029</span>
+    <span class="mob-footer-name">Ankit Haldar</span>
+  </div>
 </div>
 <section class="hero rel">
   <div class="hero-deco d1"><span class="deco-icon">🖥️</span></div>
@@ -128,7 +163,7 @@
       <span>Ankit Haldar</span>
     </div>
     <div class="hero-selected">
-      Aspiring Data Scientist<br>BCA @ Macaulay University
+      Aspiring Data Scientist<br>BCA @ MAKAUT University (2025–2029)
     </div>
   </div>
   <div class="bg-num">01</div>
