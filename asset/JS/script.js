@@ -342,3 +342,28 @@ document
       "opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease";
     fadeObserver.observe(el);
   });
+/* ─────────────────────────────────────────────────
+   MOB LINK RIPPLE EFFECT ON CLICK
+───────────────────────────────────────────────── */
+document.querySelectorAll(".mob-link").forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    var ripple = document.createElement("span");
+    var rect = link.getBoundingClientRect();
+    var size = Math.max(rect.width, rect.height);
+    ripple.style.position = "absolute";
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
+    ripple.style.left = e.clientX - rect.left - size / 2 + "px";
+    ripple.style.top = e.clientY - rect.top - size / 2 + "px";
+    ripple.style.background = "rgba(245, 168, 0, 0.18)";
+    ripple.style.borderRadius = "50%";
+    ripple.style.transform = "scale(0)";
+    ripple.style.animation = "mobRipple 0.5s ease-out forwards";
+    ripple.style.pointerEvents = "none";
+    ripple.style.zIndex = "0";
+    link.appendChild(ripple);
+    setTimeout(function () {
+      ripple.remove();
+    }, 500);
+  });
+});

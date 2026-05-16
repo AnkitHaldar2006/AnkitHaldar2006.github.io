@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/tab-icon" href="./asset/img/icon/tab-icon.png">
+<link rel="icon" type="image/tab-icon" href="./asset/img/logo/logo.jpg">
 
 <title>Ankit Haldar — Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 <!-- ── TOP BAR with compact nav ── -->
 <!-- ── TOP BAR ── -->
 <div class="topbar">
-  <div class="logo-wrap" data-logo-src="">
+  <div class="logo-wrap" data-logo-src="./asset/img/logo/logo.jpg">
     <img class="logo-img" src="" alt="Logo" id="logo-img">
     <div class="logo-fallback" id="logo-fallback" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
       <span class="logo-dot"></span>
@@ -28,7 +28,9 @@
   <!-- Desktop Pill Nav -->
   <div class="pill-nav-container">
     <nav class="pill-nav" id="pillNav">
-      <a class="pill-logo" id="logoEl" href="#">AH</a>
+   <a class="pill-logo" id="logoEl" href="#" style="padding:0;overflow:hidden;">
+        <img src="./asset/img/logo/logo.jpg" alt="AH Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">
+      </a>
       <div class="pill-nav-items">
         <ul class="pill-list" id="pillList">
           <li><a href="#about-sec" class="pill is-active" data-i="0">
@@ -90,7 +92,7 @@
 <div class="mob-menu" id="mobileMenu">
   <div class="mob-header">
     <div class="mob-logo">
-      <span class="mob-logo-dot"></span>
+      <img src="./asset/img/logo/logo.jpg" alt="AH Logo" style="width:36px;height:36px;object-fit:cover;border-radius:50%;border:2px solid rgba(245,168,0,0.5);display:block;">
       <span class="mob-logo-text">AH</span>
     </div>
     <button class="mob-close-btn" id="mobClose">&#x2715;</button>
