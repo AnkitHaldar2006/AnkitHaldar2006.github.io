@@ -1,416 +1,659 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/tab-icon" href="./asset/img/logo/logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Haldar — Data Science & Machine Learning Portfolio</title>
+  <meta name="description" content="Portfolio of Ankit Haldar — BCA Student and Aspiring Data Scientist specializing in Python, Data Analysis, Machine Learning, C++, and Web Technologies.">
+  <meta name="keywords" content="Ankit Haldar, Data Science, Machine Learning, Python, BCA, Techno College Hooghly, Data Analysis, C++, Portfolio, AI">
+  <meta name="author" content="Ankit Haldar">
 
-<title>Ankit Haldar — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./asset/css/style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="Ankit Haldar — Data Science & Machine Learning Portfolio">
+  <meta property="og:description" content="Explore data science pipelines, Python data analysis, and machine learning projects by Ankit Haldar.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='900' fill='%23ea2e2e'>AH</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/animations.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 <body>
 
-<div class="year-tag">ANKIT ✦ 2025</div>
-
-<!-- ── TOP BAR with compact nav ── -->
-<!-- ── TOP BAR ── -->
-<div class="topbar">
-  <div class="logo-wrap" data-logo-src="./asset/img/logo/logo.png">
-    <img class="logo-img" src="" alt="Logo" id="logo-img">
-    <div class="logo-fallback" id="logo-fallback" style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-      <span class="logo-dot"></span>
-      <span style="font-weight:800;font-size:13px;letter-spacing:1px;">AH</span>
-    </div>
+  <!-- Background Canvas & Atmospheric Overlays (Clean, zero floating dots/particles) -->
+  <div class="background-stage">
+    <div class="bg-base"></div>
+    <canvas id="hero-animation-canvas"></canvas>
+    <div class="hero-glow-overlay"></div>
+    <div class="vignette-overlay"></div>
+    <div class="film-grain"></div>
   </div>
 
-  <!-- Desktop Pill Nav -->
-  <div class="pill-nav-container">
-    <nav class="pill-nav" id="pillNav">
-   <a class="pill-logo" id="logoEl" href="#" style="padding:0;overflow:hidden;">
-        <img src="./asset/img/logo/logo.png" alt="AH Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">
+  <!-- Page Layout Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Top Status / Eyebrow Navigation -->
+    <header class="top-bar fade-in-up">
+      <div class="top-status">
+        <span class="status-dot"></span>
+        <span>DATA SCIENCE & ML ENTHUSIAST</span>
+      </div>
+      <a href="#collaborate" class="top-cta trigger-collaborate">
+        <span>AVAILABLE FOR FREELANCE & COLLABORATIONS</span>
+        <span class="cta-arrow">→</span>
       </a>
-      <div class="pill-nav-items">
-        <ul class="pill-list" id="pillList">
-          <li><a href="#about-sec" class="pill is-active" data-i="0">
-            <span class="hover-circle"></span>
-            <span class="label-stack">
-              <span class="pill-label">About</span>
-              <span class="pill-label-hover">About</span>
-            </span>
-          </a></li>
-          <li><a href="#projects" class="pill" data-i="1">
-            <span class="hover-circle"></span>
-            <span class="label-stack">
-              <span class="pill-label">Projects</span>
-              <span class="pill-label-hover">Projects</span>
-            </span>
-          </a></li>
-          <li><a href="#certs" class="pill" data-i="2">
-            <span class="hover-circle"></span>
-            <span class="label-stack">
-              <span class="pill-label">Certifications</span>
-              <span class="pill-label-hover">Certifications</span>
-            </span>
-          </a></li>
-          <li><a href="#skills-sec" class="pill" data-i="3">
-            <span class="hover-circle"></span>
-            <span class="label-stack">
-              <span class="pill-label">Skills</span>
-              <span class="pill-label-hover">Skills</span>
-            </span>
-          </a></li>
-          <li><a href="#contact-sec" class="pill" data-i="4">
-            <span class="hover-circle"></span>
-            <span class="label-stack">
-              <span class="pill-label">Contact</span>
-              <span class="pill-label-hover">Contact</span>
-            </span>
-          </a></li>
-        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <!-- Giant Red Watermark Typography -->
+      <div class="hero-watermark" aria-hidden="true">PORTFOLIO</div>
+
+      <div class="hero-content-grid">
+        
+        <!-- Hero Left Column: Intro & Bio -->
+        <div class="hero-left fade-in-up">
+          <div class="hero-greeting">HI, I'M</div>
+          <h1 class="hero-name">
+            <span class="name-line">ANKIT</span>
+            <span class="name-line">HALDAR</span>
+          </h1>
+          <div class="hero-role-tag">ASPIRING DATA SCIENTIST & BCA STUDENT</div>
+          <p class="hero-bio">
+            I'm Ankit Haldar, an aspiring data scientist currently pursuing my Bachelor of Computer Applications (BCA) at Techno College Hooghly (2025–2035, Freshman). I analyze datasets, build machine learning models, and uncover actionable insights from data with code and mathematics.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <span>EXPLORE PROJECTS</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <button class="btn-secondary trigger-collaborate">
+              <span>GET IN TOUCH</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Rotating Badge & Metadata Table -->
+        <div class="hero-right fade-in-up">
+          
+          <!-- Rotating Stamp Badge -->
+          <div class="stamp-badge-container" title="Data Science & ML">
+            <svg class="stamp-svg-rotating" viewBox="0 0 140 140">
+              <path id="stamp-circle-path" d="M 70, 70 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="none" />
+              <text>
+                <textPath xlink:href="#stamp-circle-path" startOffset="0%">
+                  • DATA SCIENCE • MACHINE LEARNING • ANALYTICS •
+                </textPath>
+              </text>
+            </svg>
+            <div class="stamp-center-monogram">AH</div>
+          </div>
+
+          <!-- Metadata Table -->
+          <div class="hero-meta-table">
+            <div class="meta-row">
+              <span class="meta-label">BASED IN</span>
+              <span class="meta-value">INDIA</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">EDUCATION</span>
+              <span class="meta-value">BCA @ TECHNO COLLEGE ('25–'35)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">PRIMARY FOCUS</span>
+              <span class="meta-value">DATA SCIENCE & ML</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">AVAILABLE</span>
+              <span class="meta-value">WORLDWIDE</span>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </nav>
-  </div>
+    </section>
 
-  <!-- Right side: toggle + hamburger -->
- <!-- Right side: toggle + hamburger -->
-  <div class="topbar-right">
-    <div class="toggle-switch" id="themeToggle">
-      <div class="toggle-knob" id="toggleKnob"></div>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</div>
-
-<!-- ADVANCED MOBILE MENU -->
-<div class="mob-overlay" id="mobOverlay"></div>
-<div class="mob-menu" id="mobileMenu">
-  <div class="mob-header">
-    <div class="mob-logo">
-      <img src="./asset/img/logo/logo.png" alt="AH Logo" style="width:36px;height:36px;object-fit:cover;border-radius:50%;border:2px solid rgba(245,168,0,0.5);display:block;">
-      <span class="mob-logo-text">AH</span>
-    </div>
-    <button class="mob-close-btn" id="mobClose">&#x2715;</button>
-  </div>
-  <div class="mob-label">NAVIGATE</div>
-  <nav class="mob-nav">
-    <a href="#about-sec" class="mob-link">
-      <span class="mob-num">01</span>
-      <span class="mob-text">About</span>
-      <span class="mob-arrow">&#8594;</span>
-    </a>
-    <a href="#projects" class="mob-link">
-      <span class="mob-num">02</span>
-      <span class="mob-text">Projects</span>
-      <span class="mob-arrow">&#8594;</span>
-    </a>
-    <a href="#certs" class="mob-link">
-      <span class="mob-num">03</span>
-      <span class="mob-text">Certifications</span>
-      <span class="mob-arrow">&#8594;</span>
-    </a>
-    <a href="#skills-sec" class="mob-link">
-      <span class="mob-num">04</span>
-      <span class="mob-text">Skills</span>
-      <span class="mob-arrow">&#8594;</span>
-    </a>
-    <a href="#contact-sec" class="mob-link">
-      <span class="mob-num">05</span>
-      <span class="mob-text">Contact</span>
-      <span class="mob-arrow">&#8594;</span>
-    </a>
-  </nav>
-  <div class="mob-footer">
-    <span class="mob-footer-role">Data Science · BCA 2025–2029</span>
-    <span class="mob-footer-name">Ankit Haldar</span>
-  </div>
-</div>
-<section class="hero rel">
-  <div class="hero-deco d1"><span class="deco-icon">🖥️</span></div>
-  <div class="hero-deco d2"><span class="deco-icon">💻</span></div>
-
-  <!-- ═══════════════════════════════════════════════════
-    EDITABLE PHOTO — Hero circle (Change 7)
-    ────────────────────────────────────────────────────
-    HOW TO ADD YOUR PHOTO:
-      1. Put your photo in ./asset/img/  (JPG/PNG/WEBP)
-      2. Change: data-photo-src="" → data-photo-src="./asset/img/your-photo.jpg"
-    Photo auto-resizes & covers the circle. Emoji disappears automatically.
-  ═══════════════════════════════════════════════════ -->
-  <div class="hero-photo-wrap" data-photo-src="./asset/img/photo/my_photo.jpg">
-    <div class="hero-photo-bg"></div>
-    <div class="hero-photo-circle">
-      <img class="profile-photo" src="./asset/img/photo/my_photo.jpg" alt="Ankit Haldar" id="hero-photo">
-      <span class="avatar-placeholder" id="hero-placeholder">🧑‍💻</span>
-    </div>
-  </div>
-
-  <div class="hero-title-wrap">
-    <span class="quote-open">"</span>
-    <span class="hero-word">PORTO</span>
-    <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;">
-      <span class="hero-sub-badge">Data Science</span>
-    </div>
-    <span class="hero-word">FOLIO<span class="hero-period">.</span></span>
-  </div>
-
-  <div class="hero-footer" style="position:relative;z-index:4;">
-    <div class="hero-name-btn">
-      <div class="circle-arrow">›</div>
-      <span>Ankit Haldar</span>
-    </div>
-    <div class="hero-selected">
-      Aspiring Data Scientist<br>BCA @ MAKAUT University (2025–2029)
-    </div>
-  </div>
-  <div class="bg-num">01</div>
-</section>
-
-<!-- ══════════════════════════════
-     ABOUT SECTION
-══════════════════════════════ -->
-<div class="section-header scroll-target" id="about-sec">
-  <h2>About</h2>
-  <div class="circle-arrow">›</div>
-</div>
-
-<section class="about-section rel">
-  <div class="about-photo-col">
-    <div class="about-photo-box">
-      <div class="about-photo-corner"></div>
-      <!-- ═══════════════════════════════════════════════════
-        EDITABLE PHOTO — About section (Change 7 continued)
-        ────────────────────────────────────────────────────
-        HOW TO ADD YOUR PHOTO:
-          Same as the hero photo — set data-photo-src on the
-          parent .hero-photo-wrap, OR just set src directly:
-          <img class="about-profile-photo" src="./asset/img/your-photo.jpg" ...>
-      ═══════════════════════════════════════════════════ -->
-      <img class="about-profile-photo" src="./asset/img/photo/my_photo.jpg" alt="Ankit Haldar" id="about-photo">
-      <span class="big-avatar" id="about-placeholder">🧑‍💻</span>
-    </div>
-
-    <div class="contact-card">
-      <h3>Let's Work Together :</h3>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <a href="mailto:haldarankit2006@gmail.com">haldarankit2006@gmail.com</a>
+    <!-- Featured Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="section-header fade-in-up">
+        <div class="section-title-tag">FEATURED PROJECTS</div>
+        <a href="#projects" id="view-all-projects-btn" class="section-header-link">
+          <span>VIEW ALL PROJECTS</span>
+          <span class="arrow">→</span>
+        </a>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">🐙</div>
-        <a href="https://github.com/AnkitHaldar2006" target="_blank">github.com/AnkitHaldar2006</a>
+
+      <div class="projects-grid">
+        
+        <!-- Project Card 01 -->
+        <div class="project-card fade-in-up" data-project-id="01">
+          <div class="project-preview">
+            <span class="project-index-badge">01</span>
+            <img src="assets/images/project1.png" alt="Editorial Portfolio Website">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">EDITORIAL PORTFOLIO</h3>
+            <div class="project-category">WEB DEVELOPMENT & UI/UX</div>
+            <p class="project-desc">
+              Modern, fully responsive personal portfolio designed to showcase technical skills and data projects with editorial typography.
+            </p>
+            <div class="project-bottom-link">
+              <span>→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 02 -->
+        <div class="project-card fade-in-up" data-project-id="02">
+          <div class="project-preview">
+            <span class="project-index-badge">02</span>
+            <img src="assets/images/project2.png" alt="Data Analysis with Python">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">DATA ANALYSIS IN PYTHON</h3>
+            <div class="project-category">DATA SCIENCE & ANALYTICS</div>
+            <p class="project-desc">
+              Exploratory data analysis on real-world datasets leveraging Pandas and Matplotlib for statistical evaluation and visual storytelling.
+            </p>
+            <div class="project-bottom-link">
+              <span>→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 03 -->
+        <div class="project-card fade-in-up" data-project-id="03">
+          <div class="project-preview">
+            <span class="project-index-badge">03</span>
+            <img src="assets/images/project3.png" alt="C++ Logic & Console Engine">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">C++ CONSOLE ENGINE</h3>
+            <div class="project-category">C++ & OBJECT-ORIENTED PROGRAMMING</div>
+            <p class="project-desc">
+              Collection of algorithmic console applications and logic mini-games built in C++ demonstrating OOP principles and data structures.
+            </p>
+            <div class="project-bottom-link">
+              <span>→</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">💼</div>
-        <a href="https://www.linkedin.com/in/ankit-haldar-77b823373/" target="_blank">linkedin.com/in/ankit-haldar-77b823373/</a>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════
-    ABOUT CONTENT + SKILLS (Change 3 — shifted right with better spacing)
-  ═══════════════════════════════════════════════════ -->
-  <div class="about-content-col">
-    <div class="hello-quote">" "HELLO</div>
-    <div class="hello-title">HELLO<span class="dot">.</span></div>
-    <p class="about-bio">
-      I'm <strong>Ankit Haldar</strong>, an aspiring data scientist currently pursuing my BCA at MAKAUT University (2025–2029). I love exploring how data can tell meaningful stories and drive smart decisions.<br><br>
-      My journey spans programming fundamentals, web development, and a growing passion for machine learning and AI. I enjoy turning ideas into projects, learning new tools, and building things from scratch.
-    </p>
-
-    <!-- ═══════════════════════════════════════════════════
-      2-COLUMN SUBSECTION LAYOUT
-      Left col: Education | Right col: Skills + Tools
-      This fills the full width of the content column.
-    ═══════════════════════════════════════════════════ -->
-    <div class="about-subsections">
-
-      <!-- LEFT: Education -->
-      <div class="sub-section">
-        <div class="sub-section-title">Education</div>
-        <div class="edu-entry">
-          <div class="edu-year">2025–</div>
-          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-          <div class="edu-school">MAKAUT University &nbsp;·&nbsp; Graduating 2029</div>
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications-section">
+      <div class="section-header fade-in-up">
+        <div class="section-title-tag">CERTIFICATIONS & CREDENTIALS</div>
+        <div class="section-counter-tag">
+          <span class="status-dot"></span>
+          <span>4 PROGRAMS</span>
         </div>
       </div>
 
-      <!-- RIGHT: Skills + Tools stacked -->
-      <div class="about-subsections-right">
+      <div class="certifications-grid">
+        
+        <!-- Certification Card 01 -->
+        <div class="cert-card fade-in-up">
+          <div class="cert-card-top">
+            <span class="cert-index-badge">01</span>
+            <div class="cert-status-badge in-progress">
+              <span class="status-dot"></span>
+              <span>IN PROGRESS</span>
+            </div>
+          </div>
+          <div class="cert-card-body">
+            <div class="cert-issuer">COURSERA / UNIV. OF MICHIGAN</div>
+            <h3 class="cert-title">PYTHON FOR EVERYBODY</h3>
+            <p class="cert-desc">
+              Comprehensive specialization focusing on Python data structures, web data scraping, database integration, and exploratory data visualization.
+            </p>
+          </div>
+          <div class="cert-card-footer">
+            <div class="cert-tags">
+              <span class="cert-tag">Python</span>
+              <span class="cert-tag">Data Structures</span>
+              <span class="cert-tag">SQL</span>
+            </div>
+            <div class="cert-icon-wrapper" title="Specialization Credential">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 15l-2 5l4 -2l4 2l-2 -5"></path>
+                <circle cx="12" cy="9" r="6"></circle>
+              </svg>
+            </div>
+          </div>
+        </div>
 
-        <!-- SKILLS (Change 6: icon-ready pills) -->
-        <div class="sub-section scroll-target" id="skills-sec">
-          <div class="sub-section-title">Skills</div>
-          <div class="skills-grid">
+        <!-- Certification Card 02 -->
+        <div class="cert-card fade-in-up">
+          <div class="cert-card-top">
+            <span class="cert-index-badge">02</span>
+            <div class="cert-status-badge upcoming">
+              <span class="status-dot upcoming-dot"></span>
+              <span>ENROLLING SOON</span>
+            </div>
+          </div>
+          <div class="cert-card-body">
+            <div class="cert-issuer">NPTEL / IIT</div>
+            <h3 class="cert-title">DATA SCIENCE FOUNDATIONS</h3>
+            <p class="cert-desc">
+              Rigorous academic coursework exploring core data science principles, linear algebra, statistical learning, and foundational analytics pipelines.
+            </p>
+          </div>
+          <div class="cert-card-footer">
+            <div class="cert-tags">
+              <span class="cert-tag">Data Science</span>
+              <span class="cert-tag">Statistics</span>
+              <span class="cert-tag">Linear Algebra</span>
+            </div>
+            <div class="cert-icon-wrapper" title="Academic Coursework">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
 
-            <!--
-              HOW TO ADD SKILL ICONS:
-              Set  data-icon="./asset/img/icons/python.svg"  (or .png)
-              on the pill span. Leave it empty to show no icon.
-              Works with SVG, PNG, JPG — any size image, always 16×16px.
-            -->
-            <span class="skill-pill yellow" data-icon="./asset/img/icon/python.svg">Python</span>
-            <span class="skill-pill"        data-icon="./asset/img/icon/c.svg">C</span>
-            <span class="skill-pill"        data-icon="./asset/img/icon/c++.svg">C++</span>
-            <span class="skill-pill yellow" data-icon="./asset/img/icon/javascript.svg">JavaScript</span>
-            <span class="skill-pill"        data-icon="./asset/img/icon/html5.svg">HTML</span>
-            <span class="skill-pill"        data-icon="./asset/img/icon/java.svg">Java</span>
+        <!-- Certification Card 03 -->
+        <div class="cert-card fade-in-up">
+          <div class="cert-card-top">
+            <span class="cert-index-badge">03</span>
+            <div class="cert-status-badge upcoming">
+              <span class="status-dot upcoming-dot"></span>
+              <span>PLANNED</span>
+            </div>
+          </div>
+          <div class="cert-card-body">
+            <div class="cert-issuer">GOOGLE / KAGGLE</div>
+            <h3 class="cert-title">INTRO TO MACHINE LEARNING</h3>
+            <p class="cert-desc">
+              Hands-on machine learning foundations covering model training, decision trees, random forests, feature engineering, and validation techniques.
+            </p>
+          </div>
+          <div class="cert-card-footer">
+            <div class="cert-tags">
+              <span class="cert-tag">ML</span>
+              <span class="cert-tag">Feature Eng</span>
+              <span class="cert-tag">Scikit-Learn</span>
+            </div>
+            <div class="cert-icon-wrapper" title="ML Certification">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certification Card 04 -->
+        <div class="cert-card fade-in-up">
+          <div class="cert-card-top">
+            <span class="cert-index-badge">04</span>
+            <div class="cert-status-badge in-progress">
+              <span class="status-dot"></span>
+              <span>IN PROGRESS</span>
+            </div>
+          </div>
+          <div class="cert-card-body">
+            <div class="cert-issuer">UDEMY</div>
+            <h3 class="cert-title">WEB DEVELOPMENT BOOTCAMP</h3>
+            <p class="cert-desc">
+              Modern full-stack web architecture, responsive user interface engineering, semantic HTML5, CSS layout systems, and JavaScript DOM scripting.
+            </p>
+          </div>
+          <div class="cert-card-footer">
+            <div class="cert-tags">
+              <span class="cert-tag">HTML5/CSS3</span>
+              <span class="cert-tag">JavaScript</span>
+              <span class="cert-tag">Responsive</span>
+            </div>
+            <div class="cert-icon-wrapper" title="Web Certification">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Master 3-Column Grid: Workflow, Skills, Collaborate -->
+    <section id="collaborate" class="master-grid-section">
+      <div class="master-3col-grid">
+        
+        <!-- Column 1: Education (Formerly Workflow) -->
+        <div class="workflow-col fade-in-up">
+          <div class="col-header">EDUCATION</div>
+          <div class="workflow-list">
+            
+            <div class="workflow-item">
+              <div class="workflow-num">01</div>
+              <div class="workflow-content">
+                <div class="workflow-title">DEGREE</div>
+                <div class="workflow-desc">Bachelor of Computer Applications (BCA Student)</div>
+              </div>
+            </div>
+
+            <div class="workflow-item">
+              <div class="workflow-num">02</div>
+              <div class="workflow-content">
+                <div class="workflow-title">COLLEGE</div>
+                <div class="workflow-desc">Techno College Hooghly</div>
+              </div>
+            </div>
+
+            <div class="workflow-item">
+              <div class="workflow-num">03</div>
+              <div class="workflow-content">
+                <div class="workflow-title">ACADEMIC DURATION</div>
+                <div class="workflow-desc">2025 — 2035</div>
+              </div>
+            </div>
+
+            <div class="workflow-item">
+              <div class="workflow-num">04</div>
+              <div class="workflow-content">
+                <div class="workflow-title">ACADEMIC STATUS</div>
+                <div class="workflow-desc">Currently Pursuing · Freshman</div>
+              </div>
+            </div>
+
+            <div class="workflow-item">
+              <div class="workflow-num">05</div>
+              <div class="workflow-content">
+                <div class="workflow-title">DISCIPLINE FOCUS</div>
+                <div class="workflow-desc">Data Science, Analytics & Computer Applications</div>
+              </div>
+            </div>
 
           </div>
         </div>
 
-        <!-- TOOLS -->
-        <div class="sub-section">
-          <div class="sub-section-title">Tools</div>
-          <div class="tools-row">
-            <!--
-              HOW TO ADD TOOL ICONS:
-              Set  data-icon="./asset/img/icons/git.svg"  on the span.
-              Leave empty for no icon. Works with SVG, PNG, JPG.
-            -->
-            <!-- <span class="tool-badge" data-icon="">Git</span> -->
-            <span class="tool-badge" data-icon="./asset/img/icon/vscode.svg">VS Code</span>
-            <span class="tool-badge" data-icon="./asset/img/icon/github.svg">GitHub</span>
-            <span class="tool-badge" data-icon="./asset/img/icon/git.svg" style="opacity:0.6;">Git Bash <em style="font-size:10px;">(learning)</em></span>
+        <!-- Column 2: Skills & Expertise -->
+        <div class="skills-col fade-in-up">
+          <div class="col-header">SKILLS & EXPERTISE</div>
+          <div class="skills-grid-wrapper">
+            
+            <div class="skills-tiles-grid">
+              
+              <!-- Skill: Python -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>PYTHON</span>
+              </div>
+
+              <!-- Skill: C & C++ -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+                <span>C & C++</span>
+              </div>
+
+              <!-- Skill: Pandas & NumPy -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+                </svg>
+                <span>PANDAS & NUMPY</span>
+              </div>
+
+              <!-- Skill: Matplotlib & Scikit-learn -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6" y1="20" x2="6" y2="14"/>
+                </svg>
+                <span>MATPLOTLIB & SCIKIT-LEARN</span>
+              </div>
+
+              <!-- Skill: Data Analysis & EDA -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                </svg>
+                <span>DATA ANALYSIS & EDA</span>
+              </div>
+
+              <!-- Skill: Machine Learning & Visualization -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/>
+                </svg>
+                <span>MACHINE LEARNING</span>
+              </div>
+
+              <!-- Skill: Git & GitHub -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="18" r="3"/>
+                  <circle cx="6" cy="6" r="3"/>
+                  <circle cx="18" cy="6" r="3"/>
+                  <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/>
+                  <path d="M12 12v3"/>
+                </svg>
+                <span>GIT & GITHUB</span>
+              </div>
+
+              <!-- Skill: VS Code & Jupyter Notebook -->
+              <div class="skill-tile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="4 17 10 11 4 5"/>
+                  <line x1="12" y1="19" x2="20" y2="19"/>
+                </svg>
+                <span>VS CODE & JUPYTER</span>
+              </div>
+
+            </div>
+
+            <!-- Award / Merit Box -->
+            <div class="award-box">
+              <div class="award-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                  <path d="M4 22h16"/>
+                  <path d="M10 14.66V17c0 .55-.45 1-1 1H7"/>
+                  <path d="M14 14.66V17c0 .55.45 1 1 1h2"/>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                </svg>
+              </div>
+              <div class="award-info">
+                <div class="award-tag">EDUCATION & CREDENTIALS</div>
+                <div class="award-title">BCA Student @ Techno College Hooghly (2025–2035)</div>
+                <div class="award-sub">Freshman · Data Science & Machine Learning Focus</div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-      </div><!-- /about-subsections-right -->
-    </div><!-- /about-subsections -->
+        <!-- Column 3: Let's Collaborate -->
+        <div class="collaborate-col fade-in-up">
+          <div class="col-header">LET'S COLLABORATE</div>
+          <h2 class="collaborate-heading">HAVE A PROJECT IN MIND?</h2>
+          <p class="collaborate-subtext">
+            I'm always open to discussing new data science projects, research ideas, or opportunities to collaborate.
+          </p>
 
-  </div>
+          <div class="contact-info-list">
+            
+            <div class="contact-row-card" id="copy-email-row" style="cursor: pointer;" title="Click to copy email">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="contact-row-details">
+                <span class="contact-row-label">EMAIL ME</span>
+                <span class="contact-row-value">haldarankit2006@gmail.com</span>
+              </div>
+            </div>
 
-  <div class="bg-num" style="bottom:-30px;">02</div>
-</section>
+            <div class="contact-row-card">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-row-details">
+                <span class="contact-row-label">LOCATION</span>
+                <span class="contact-row-value">Kolkata, India</span>
+              </div>
+            </div>
 
-<!-- ══════════════════════════════
-     PROJECTS
-══════════════════════════════ -->
-<div class="divider"></div>
-<div class="section-header scroll-target" id="projects">
-  <h2>Projects</h2>
-  <div class="circle-arrow">›</div>
-</div>
+            <div class="contact-row-card">
+              <div class="contact-row-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+              </div>
+              <div class="contact-row-details">
+                <span class="contact-row-label">GITHUB PROFILE</span>
+                <span class="contact-row-value">github.com/AnkitHaldar2006</span>
+              </div>
+            </div>
 
-<!-- Change 4: project-cards get glow on hover (via CSS .project-card:hover) -->
-<section class="projects-section rel">
-  <div class="projects-grid">
+          </div>
 
-    <div class="project-card">
-      <div class="project-num">01</div>
-      <div class="project-name">Personal Portfolio Website</div>
-      <div class="project-desc">A fully responsive portfolio to showcase skills, projects, and contact info. Built from scratch with custom HTML/CSS, inspired by bold editorial design systems.</div>
-      <div class="project-tags">
-        <span class="ptag">HTML</span>
-        <span class="ptag">CSS</span>
-        <span class="ptag">JavaScript</span>
+          <button class="btn-collaborate-full trigger-collaborate">
+            <span>LET'S CREATE SOMETHING AMAZING</span>
+            <span>→</span>
+          </button>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="project-card">
-      <div class="project-num">02</div>
-      <div class="project-name">Data Analysis with Python</div>
-      <div class="project-desc">Exploratory data analysis on a public dataset using Pandas and Matplotlib. Identified trends and visualized insights for storytelling.</div>
-      <div class="project-tags">
-        <span class="ptag">Python</span>
-        <span class="ptag">Pandas</span>
-        <span class="ptag">Matplotlib</span>
+    <!-- Footer Bar -->
+    <footer class="footer-section fade-in-up">
+      
+      <!-- Left: Connect -->
+      <div class="footer-social-wrapper">
+        <div class="footer-social-label">LET'S CONNECT</div>
+        <div class="social-icons-row">
+          <a href="https://www.linkedin.com/in/ankit-haldar-77b823373/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="https://github.com/AnkitHaldar2006" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+              <path d="M9 18c-4.51 2-5-2-7-2"/>
+            </svg>
+          </a>
+          <a href="https://kaggle.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Kaggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4v16"/>
+              <path d="M4 12l8-8"/>
+              <path d="M4 12l8 8"/>
+              <path d="M14 4l6 8-6 8"/>
+            </svg>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Twitter/X">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4l11.733 16h4.267l-11.733-16z"/>
+              <path d="M4 20l6.768-6.768m2.464-2.464l6.768-6.768"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
       </div>
-      <div><span class="wip-badge">🔧 In Progress</span></div>
-    </div>
 
-    <div class="project-card">
-      <div class="project-num">03</div>
-      <div class="project-name">C++ Console Games</div>
-      <div class="project-desc">Collection of console-based mini-games (Tic Tac Toe, Number Guessing) built in C++ to deepen understanding of OOP and logic building.</div>
-      <div class="project-tags">
-        <span class="ptag">C++</span>
-        <span class="ptag">OOP</span>
-        <span class="ptag">Logic</span>
+      <!-- Center: Quote matching reference -->
+      <div class="footer-quote">
+        <span class="quote-mark">❝</span> GOOD DATA IS NOT JUST HOW IT LOOKS, <br>
+        <span class="quote-red">IT'S HOW IT WORKS.</span> <span class="quote-mark">❞</span>
       </div>
-    </div>
 
-    <div class="project-card">
-      <div class="project-num">04</div>
-      <div class="project-name">More Projects Coming</div>
-      <div class="project-desc">Actively learning and building. Upcoming projects will include machine learning models, web apps, and open-source contributions.</div>
-      <div class="project-tags">
-        <span class="ptag">ML</span>
-        <span class="ptag">Web Dev</span>
-        <span class="ptag">Open Source</span>
+      <!-- Right: Resume CTA -->
+      <div class="footer-resume-wrapper">
+        <button id="download-resume-btn" class="btn-resume">
+          <span>DOWNLOAD MY RESUME</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </button>
       </div>
-      <div><span class="wip-badge">🚀 Upcoming</span></div>
-    </div>
+
+    </footer>
 
   </div>
-  <div class="bg-num" style="right:16px;left:auto;">03</div>
-</section>
 
-<!-- ══════════════════════════════
-     CERTIFICATIONS
-══════════════════════════════ -->
-<div class="divider"></div>
-<div class="section-header scroll-target" id="certs">
-  <h2>Certifications</h2>
-  <div class="circle-arrow">›</div>
-</div>
-
-<!-- Change 4 continued: cert-cards also get glow on hover (via CSS) -->
-<section class="certs-section rel">
-  <div class="certs-list">
-    <div class="cert-card">
-      <div class="cert-name">Python for Everybody</div>
-      <div class="cert-platform">Coursera / University of Michigan</div>
-      <div class="cert-status"><span class="status-dot"></span> Pursuing — In Progress</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-name">Data Science Foundations</div>
-      <div class="cert-platform">NPTEL / IIT</div>
-      <div class="cert-status"><span class="status-dot"></span> Upcoming — Enrolling Soon</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-name">Introduction to Machine Learning</div>
-      <div class="cert-platform">Google / Kaggle</div>
-      <div class="cert-status"><span class="status-dot"></span> Upcoming — Planned</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-name">Web Development Bootcamp</div>
-      <div class="cert-platform">Udemy</div>
-      <div class="cert-status"><span class="status-dot"></span> In Progress</div>
+  <!-- Project Modal -->
+  <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="project-modal-body"></div>
     </div>
   </div>
-  <div class="bg-num">04</div>
-</section>
 
-<!-- ══════════════════════════════
-     CONTACT / FOOTER
-══════════════════════════════ -->
-<footer class="footer scroll-target" id="contact-sec">
-  <div class="footer-title">
-    LET'S <span class="yel">CONNECT</span><br>& BUILD TOGETHER<span style="color:var(--yellow);">.</span>
-  </div>
-  <div class="footer-links">
-   <a class="footer-link" href="https://mail.google.com/mail/?view=cm&to=haldarankit2006@gmail.com" target="_blank">
-      <span>✉️</span> Gmail
-    </a>
-    <a class="footer-link" href="https://github.com/AnkitHaldar2006" target="_blank">
-      <span>🐙</span> GitHub
-    </a>
-    <a class="footer-link" href="https://www.linkedin.com/in/ankit-haldar-77b823373/" target="_blank">
-      <span>💼</span> LinkedIn
-    </a>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Ankit Haldar</span>
-    <span>Aspiring Data Scientist · BCA '29</span>
-  </div>
-</footer>
+  <!-- Contact / Collaborate Modal -->
+  <div id="contact-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div style="margin-bottom: 8px;">
+        <span class="project-index-badge" style="position: static; display: inline-block; margin-bottom: 8px;">GET IN TOUCH</span>
+        <h2 style="font-family: var(--font-body); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; color: #fff;">LET'S START A CONVERSATION</h2>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;">
+          Fill out the details below and I will respond to your message promptly.
+        </p>
+      </div>
 
-<script src="./asset/js/script.js"></script>
+      <form id="contact-form" class="modal-form">
+        <div class="form-group">
+          <label class="form-label" for="contact-name">YOUR NAME</label>
+          <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. John Doe" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="contact-email">EMAIL ADDRESS</label>
+          <input type="email" id="contact-email" name="email" class="form-input" placeholder="name@company.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="contact-message">PROJECT INQUIRY / MESSAGE</label>
+          <textarea id="contact-message" name="message" class="form-textarea" placeholder="Tell me about your dataset, project scope, or questions..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 8px; justify-content: center;">
+          <span>SEND INQUIRY</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="./assets/js/data.js"></script>
+  <script src="./assets/js/frame-animation.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>

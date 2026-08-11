@@ -1,0 +1,114 @@
+/* ==========================================================================
+   ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* Rotating Circular Stamp */
+@keyframes rotateStamp {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulsing Status Dot */
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(234, 46, 46, 0.7);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(234, 46, 46, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(234, 46, 46, 0);
+  }
+}
+
+/* Floating Ambient Glow */
+@keyframes ambientGlowPulse {
+  0%, 100% {
+    opacity: 0.16;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.24;
+    transform: scale(1.05);
+  }
+}
+
+/* Entrance Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shimmer Highlight Effect for Badges and CTA */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Red Line Hover Sweep */
+.hover-underline-sweep {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline-sweep::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-red);
+  transition: width 0.3s ease;
+}
+
+.hover-underline-sweep:hover::after {
+  width: 100%;
+}
+
+/* Canvas Fade-in on Ready */
+.canvas-ready {
+  animation: canvasFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes canvasFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 0.92;
+    filter: blur(0px);
+  }
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .stamp-svg-rotating {
+    animation: none !important;
+  }
+}
