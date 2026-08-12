@@ -4,7 +4,7 @@
    Pixel-Perfect Editorial Dark-Crimson Theme
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   /* Color Palette derived from reference */
@@ -37,9 +37,9 @@
   --border-red: rgba(234, 46, 46, 0.4);
 
   /* Typography Families */
-  --font-display: 'Bebas Neue', 'Syne', sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Mono', monospace;
 
   /* Spacing Scale */
   --container-max-width: 1440px;
@@ -240,6 +240,9 @@ ul, ol {
   align-items: center;
   gap: 8px;
   color: var(--accent-red);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
 }
 
 .status-dot {
@@ -256,6 +259,10 @@ ul, ol {
   align-items: center;
   gap: 8px;
   color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   transition: all var(--transition-fast);
   padding: 6px 14px;
   border-radius: var(--radius-full);
@@ -306,7 +313,7 @@ ul, ol {
   line-height: 0.85;
   letter-spacing: 0.04em;
   color: var(--accent-red);
-  font-weight: 900;
+  font-weight: 400;
   text-transform: uppercase;
   pointer-events: none;
   user-select: none;
@@ -346,7 +353,7 @@ ul, ol {
 .hero-name {
   font-family: var(--font-display);
   font-size: clamp(3.8rem, 7.5vw, 6.2rem);
-  font-weight: 900;
+  font-weight: 400;
   line-height: 0.88;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -361,10 +368,10 @@ ul, ol {
 }
 
 .hero-role-tag {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-red);
   margin-bottom: 18px;
@@ -382,6 +389,7 @@ ul, ol {
 }
 
 .hero-bio {
+  font-family: var(--font-body);
   font-size: 0.94rem;
   line-height: 1.65;
   color: var(--text-secondary);
@@ -487,7 +495,7 @@ ul, ol {
 .stamp-svg-rotating text {
   font-family: var(--font-mono);
   font-size: 10.5px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 3px;
   fill: #8e8e96;
   text-transform: uppercase;
@@ -498,9 +506,9 @@ ul, ol {
   z-index: 2;
   font-family: var(--font-display);
   font-size: 2.2rem;
-  font-weight: 900;
+  font-weight: 400;
   color: var(--accent-red);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   text-shadow: 0 0 15px rgba(234, 46, 46, 0.5);
 }
 
@@ -509,7 +517,7 @@ ul, ol {
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
 }
 
 .meta-row {
@@ -519,7 +527,7 @@ ul, ol {
   padding: 11px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .meta-row:last-child {
@@ -568,10 +576,10 @@ ul, ol {
 }
 
 .section-title-tag {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-red);
   display: inline-flex;
@@ -710,16 +718,17 @@ ul, ol {
 }
 
 .project-category {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-red);
   margin-bottom: 10px;
 }
 
 .project-desc {
+  font-family: var(--font-body);
   font-size: 0.8rem;
   line-height: 1.55;
   color: var(--text-secondary);
@@ -757,10 +766,10 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -832,10 +841,10 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-body);
-  font-size: 0.64rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.04);
@@ -861,10 +870,10 @@ ul, ol {
 }
 
 .cert-issuer {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-red);
   margin-bottom: 6px;
@@ -882,6 +891,7 @@ ul, ol {
 }
 
 .cert-desc {
+  font-family: var(--font-body);
   font-size: 0.77rem;
   line-height: 1.5;
   color: var(--text-secondary);
@@ -905,13 +915,14 @@ ul, ol {
 }
 
 .cert-tag {
+  font-family: var(--font-mono);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #d4d4d8;
   padding: 2px 7px;
   border-radius: 3px;
-  font-size: 0.66rem;
-  font-weight: 600;
+  font-size: 0.64rem;
+  font-weight: 700;
 }
 
 .cert-card:hover .cert-tag {
@@ -956,10 +967,10 @@ ul, ol {
 
 /* Column Header */
 .col-header {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-red);
   margin-bottom: 24px;
@@ -990,7 +1001,7 @@ ul, ol {
 .workflow-num {
   font-family: var(--font-display);
   font-size: 2.2rem;
-  font-weight: 900;
+  font-weight: 400;
   line-height: 0.9;
   color: var(--accent-red);
   min-width: 38px;
@@ -1012,6 +1023,7 @@ ul, ol {
 }
 
 .workflow-desc {
+  font-family: var(--font-body);
   font-size: 0.76rem;
   line-height: 1.45;
   color: var(--text-secondary);
@@ -1105,21 +1117,23 @@ ul, ol {
 }
 
 .award-tag {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
   margin-bottom: 2px;
 }
 
 .award-title {
+  font-family: var(--font-body);
   font-size: 0.74rem;
   color: var(--text-secondary);
 }
 
 .award-sub {
+  font-family: var(--font-body);
   font-size: 0.7rem;
   color: var(--accent-red);
   font-weight: 600;
@@ -1135,9 +1149,9 @@ ul, ol {
 }
 
 .collaborate-heading {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #ffffff;
@@ -1146,6 +1160,7 @@ ul, ol {
 }
 
 .collaborate-subtext {
+  font-family: var(--font-body);
   font-size: 0.78rem;
   line-height: 1.5;
   color: var(--text-secondary);
@@ -1193,6 +1208,7 @@ ul, ol {
 }
 
 .contact-row-label {
+  font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -1256,10 +1272,10 @@ ul, ol {
 }
 
 .footer-social-label {
-  font-family: var(--font-body);
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent-red);
 }
@@ -1432,7 +1448,8 @@ ul, ol {
 }
 
 .form-label {
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;

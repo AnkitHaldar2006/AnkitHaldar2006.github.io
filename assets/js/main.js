@@ -139,7 +139,7 @@ function openProjectModal(projectId) {
       <h2 style="font-family: var(--font-body); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 4px;">
         ${project.title}
       </h2>
-      <div style="font-size: 0.76rem; font-weight: 800; color: var(--accent-red); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px;">
+      <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--accent-red); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;">
         ${project.category}
       </div>
       <div style="width: 100%; height: 260px; border-radius: var(--radius-xs); overflow: hidden; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.1);">
@@ -152,13 +152,13 @@ function openProjectModal(projectId) {
         ${project.details}
       </p>
       <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-        ${project.tags.map(t => `<span style="background: rgba(234,46,46,0.12); border: 1px solid var(--accent-red-border); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.72rem; font-weight: 700;">${t}</span>`).join('')}
+        ${project.tags.map(t => `<span style="font-family: var(--font-mono); background: rgba(234,46,46,0.12); border: 1px solid var(--accent-red-border); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.68rem; font-weight: 700;">${t}</span>`).join('')}
       </div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-xs); margin-bottom: 20px;">
         ${Object.entries(project.metrics).map(([key, val]) => `
           <div>
-            <div style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">${key.replace(/([A-Z])/g, ' $1')}</div>
-            <div style="font-family: var(--font-display); font-size: 1.3rem; color: var(--accent-red); font-weight: 900;">${val}</div>
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">${key.replace(/([A-Z])/g, ' $1')}</div>
+            <div style="font-family: var(--font-display); font-size: 1.3rem; color: var(--accent-red); font-weight: 400;">${val}</div>
           </div>
         `).join('')}
       </div>
